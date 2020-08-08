@@ -28,14 +28,7 @@ This is the parent `<div>` that contains the menu and the content area.
   left: 0;
   padding-left: 0;
 }
-  #layout.active #menu {
-      left: 150px;
-      width: 150px;
-  }
 
-  #layout.active .menu-link {
-      left: 150px;
-  }
 /*
 The content `<div>` is where all your content goes.
 */
@@ -228,44 +221,22 @@ Hides the menu at `48em`, but modify this based on your app's needs.
       left: 150px;
       display: none;
   }
-
-  #layout.active .menu-link {
-      left: 150px;
-  }
 }
 
-@media (max-width: 48em) {
-  /* Only apply this when the window is small. Otherwise, the following
-  case results in extra padding on the left:
-      * Make the window small.
-      * Tap the menu to trigger the active state.
-      * Make the window large again.
-  */
-  #layout.active {
-      position: relative;
-      left: 150px;
-  }
-}
 
+/* -- Toggle Helper and Transitions ------------------------------------- */
+
+/* This is the toggle helper input (checkbox) that is used for the open/closed state */
 #layout .menu-toggle-helper {
   display: block;
-  /* width: 40px;
-  height: 32px; */
   position: absolute;
-  /* top: -7px;
-  left: -5px; */
-
   cursor: pointer;
-
   opacity: 0; /* hide this */
   z-index: 101; /* and place it over the hamburger */
-
   -webkit-touch-callout: none;
-
   font-size: 26px; /* change this value to increase/decrease button size */
   width: 2em;
   height: 1.7em;
-  /* padding: 2.1em 1.6em; */
 }
 
 /* Move the menu toggle helper itself (so that it is over the hamburger/cross again) */
@@ -297,7 +268,7 @@ Hides the menu at `48em`, but modify this based on your app's needs.
   display: none;
 }
 
-/* These 3 are the hamburger lines */
+/* Reuse hamburger lines for the cross (X) */
 #layout .menu-toggle-helper:checked ~ .menu-link span {
   position: absolute;
   transform: rotate(-45deg);
